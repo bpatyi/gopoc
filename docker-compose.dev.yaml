@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: todo_api
+    ports:
+      - 9191:9090
+    # depends_on:
+    #   - mysql
+    volumes:
+      - ./:/app
