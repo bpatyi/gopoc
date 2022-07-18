@@ -7,9 +7,9 @@ const (
 	EnvStaging    = "staging"
 	EnvProduction = "production"
 
-	frameworkGin   = "gin"
-	frameworkEcho  = "echo"
-	frameworkFiber = "fiber"
+	FrameworkGin   = "gin"
+	FrameworkEcho  = "echo"
+	FrameworkFiber = "fiber"
 
 	databaseTypeSqlite   = "sqlite"
 	databaseTypeMongoDb  = "mongodb"
@@ -28,7 +28,7 @@ func (c Config) Validate() error {
 	return validation.ValidateStruct(
 		&c,
 		validation.Field(&c.Env, validation.Required, validation.In(EnvDebug, EnvStaging, EnvProduction)),
-		validation.Field(&c.Framework, validation.Required, validation.In(frameworkEcho, frameworkFiber, frameworkGin)),
+		validation.Field(&c.Framework, validation.Required, validation.In(FrameworkEcho, FrameworkFiber, FrameworkGin)),
 		validation.Field(&c.DatabaseType, validation.Required, validation.In(
 			databaseTypeMongoDb,
 			databaseTypeMysql,
